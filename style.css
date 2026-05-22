@@ -1,0 +1,125 @@
+/* Variáveis de Cor e Efeitos Cartoon */
+:root {
+    --bg-principal: #121212;
+    --bg-card: #1e1e1e;
+    --verde-neon: #39ff14;
+    --verde-agro: #24cc14;
+    --borda-cartoon: 4px solid #000000;
+    --sombra-cartoon: 5px 5px 0px #000000;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background-color: var(--bg-principal);
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+/* Elemento Badge */
+.badge-tema {
+    display: inline-block;
+    background: #2a2a2a;
+    color: var(--verde-neon);
+    border: 2px solid var(--verde-neon);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Cards Estilo HQ (Borda grossa e sombra sem desfoque) */
+.card {
+    background-color: var(--bg-card);
+    border: var(--borda-cartoon);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--sombra-cartoon);
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+/* Efeito de feedback visual ao passar o mouse */
+.card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px #000000;
+}
+
+h1 {
+    color: var(--verde-neon);
+    font-size: 32px;
+    margin-top: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    -webkit-text-stroke: 1px #000;
+}
+
+h3 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.subtitulo-secao {
+    color: var(--verde-agro);
+    font-weight: bold;
+}
+
+.destaque-texto {
+    color: var(--verde-neon);
+    font-weight: bold;
+}
+
+/* Itens da lista com estilo caixa de quadrinhos */
+.lista-cartoon {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-cartoon li {
+    background-color: #2a2a2a;
+    border: 3px solid #000;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0px #000;
+}
+
+.lista-cartoon li strong {
+    color: var(--verde-neon);
+}
+
+/* Caixa de Alerta interna para a Justificativa */
+.caixa-alerta-justificativa {
+    background-color: var(--verde-agro);
+    color: #000000;
+    border: var(--borda-cartoon);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: var(--sombra-cartoon);
+}
+
+.caixa-alerta-justificativa h2 {
+    color: #000000;
+    margin-top: 0;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.caixa-alerta-justificativa p {
+    color: #000000;
+    font-weight: 600;
+}
