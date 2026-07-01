@@ -18,6 +18,8 @@
         <a href="#objetivos">🎯 Objetivos</a>
         <a href="#justificativa">💡 Justificativa</a>
         <a href="#fontes-pesquisa">📊 Fontes & Dados</a>
+        <a href="#quiz-secao">🎮 Quiz</a>
+        <button id="btn-tema" class="btn-alternar-tema">🌓 Alternar Tema</button>
     </nav>
 
     <div class="container">
@@ -69,51 +71,92 @@
 
         <section class="card" id="fontes-pesquisa">
             <h1>2. Fontes, Dados e Inovação</h1>
-            <p class="subtitulo-secao">Conecte-se com as maiores bases de dados e pesquisas do agronegócio sustentável:</p>
+            <p class="subtitulo-secao">Filtre as informações clicando nos botões abaixo:</p>
 
-            <h3>📊 Dados Oficiais e Relatórios</h3>
-            <ul class="lista-cartoon">
-                <li>
-                    <strong>CONAB:</strong> Previsões mensais de safra, planilhas e relatórios de abastecimento nacional. <br>
+            <div class="container-filtros">
+                <button class="btn-filtro ativo" data-alvo="todos">📚 Ver Todos</button>
+                <button class="btn-filtro" data-alvo="oficiais">📊 Órgãos Oficiais</button>
+                <button class="btn-filtro" data-alvo="pesquisa">🔬 Pesquisa & Notícias</button>
+            </div>
+
+            <div id="conteudo-fontes">
+                <div class="item-fonte" data-categoria="oficiais">
+                    <h3>📊 Dados Oficiais e Relatórios CONAB</h3>
+                    <p>Previsões mensais de safra, planilhas e relatórios de abastecimento nacional.</p>
                     <a href="https://www.conab.gov.br" target="_blank" class="link-externo">Visitar conab.gov.br</a>
-                </li>
-                <li>
-                    <strong>IBGE (Sidra):</strong> Dados consolidados do Censo Agropecuário e Produção Agrícola Municipal (PAM). <br>
+                </div>
+
+                <div class="item-fonte" data-categoria="oficiais">
+                    <h3>📊 IBGE (Sidra)</h3>
+                    <p>Dados consolidados do Censo Agropecuário e Produção Agrícola Municipal (PAM).</p>
                     <a href="https://sidra.ibge.gov.br" target="_blank" class="link-externo">Visitar sidra.ibge.gov.br</a>
-                </li>
-                <li>
-                    <strong>MAPA:</strong> Valor Bruto da Produção (VBP), dados de exportação (AgroStat) e políticas públicas. <br>
+                </div>
+
+                <div class="item-fonte" data-categoria="oficiais">
+                    <h3>📊 Ministério da Agricultura e Pecuária (MAPA)</h3>
+                    <p>Valor Bruto da Production (VBP), dados de exportação (AgroStat) e políticas públicas.</p>
                     <a href="https://www.gov.br/agricultura" target="_blank" class="link-externo">Visitar gov.br/agricultura</a>
-                </li>
-            </ul>
+                </div>
 
-            <h3>🔬 Pesquisa, Inovação e Agtechs</h3>
-            <ul class="lista-cartoon">
-                <li>
-                    <strong>Embrapa:</strong> Acervo digital com livros, pesquisas e o Radar Agtech focado em startups do campo. <br>
+                <div class="item-fonte" data-categoria="pesquisa">
+                    <h3>🔬 Embrapa</h3>
+                    <p>Acervo digital com livros, pesquisas e o Radar Agtech focado em startups do campo.</p>
                     <a href="https://www.embrapa.br" target="_blank" class="link-externo">Visitar embrapa.br</a>
-                </li>
-                <li>
-                    <strong>CEPEA (ESALQ/USP):</strong> Indicadores econômicos econômicos do agro, cotações de commodities e análises financeiras. <br>
-                    <a href="https://cepea.esalq.usp.br" target="_blank" class="link-externo">Visitar cepea.esalq.usp.br</a>
-                </li>
-            </ul>
+                </div>
 
-            <h3>📰 Portais de Notícias e Cases</h3>
-            <ul class="lista-cartoon">
-                <li>
-                    <strong>Notícias Agrícolas:</strong> Cotações de mercado em tempo real, entrevistas de rádio e reportagens em vídeo. <br>
+                <div class="item-fonte" data-categoria="pesquisa">
+                    <h3>🔬 CEPEA (ESALQ/USP)</h3>
+                    <p>Indicadores econômicos do agro, cotações de commodities e análises financeiras.</p>
+                    <a href="https://cepea.esalq.usp.br" target="_blank" class="link-externo">Visitar cepea.esalq.usp.br</a>
+                </div>
+
+                <div class="item-fonte" data-categoria="pesquisa">
+                    <h3>📰 Notícias Agrícolas</h3>
+                    <p>Cotações de mercado em tempo real, entrevistas de rádio e reportagens em vídeo.</p>
                     <a href="https://www.noticiasagricolas.com.br" target="_blank" class="link-externo">Visitar noticiasagricolas.com.br</a>
-                </li>
-                <li>
-                    <strong>Globo Rural:</strong> Entrevistas exclusivas, perfis de sucesso do campo e inovações industriais. <br>
+                </div>
+
+                <div class="item-fonte" data-categoria="pesquisa">
+                    <h3>📰 Globo Rural</h3>
+                    <p>Entrevistas exclusivas, perfis de sucesso do campo e inovações industriais.</p>
                     <a href="https://globorural.globo.com" target="_blank" class="link-externo">Visitar globorural.globo.com</a>
-                </li>
-                <li>
-                    <strong>Agrishow Digital:</strong> Tendências de maquinários agrícolas, inovação no campo e e-books gratuitos. <br>
+                </div>
+
+                <div class="item-fonte" data-categoria="pesquisa">
+                    <h3>📰 Agrishow Digital</h3>
+                    <p>Tendências de maquinários agrícolas, inovação no campo e e-books gratuitos.</p>
                     <a href="https://digital.agrishow.com.br" target="_blank" class="link-externo">Visitar digital.agrishow.com.br</a>
-                </li>
-            </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" id="quiz-secao">
+            <h1>🎮 Desafio Sustentável (Quiz)</h1>
+            <p>Teste seus conhecimentos sobre o equilíbrio no campo:</p>
+            
+            <div class="caixa-quiz">
+                <h3 id="pergunta-quiz">Qual dessas práticas ajuda diretamente no equilíbrio entre produção e meio ambiente?</h3>
+                <div class="opcoes-quiz">
+                    <button class="opcao-btn" data-correta="false">A) Uso excessivo de defensivos químicos sem controle.</button>
+                    <button class="opcao-btn" data-correta="true">B) Rotação de culturas e adoção de bioinsumos.</button>
+                    <button class="opcao-btn" data-correta="false">C) Desmatamento de áreas nativas para expandir pastos.</button>
+                </div>
+                <div id="resultado-quiz" class="resultado-escondido"></div>
+            </div>
+        </section>
+
+        <section class="card" id="comentarios-secao">
+            <h1>💬 Espaço da Comunidade</h1>
+            <p>Deixe suas sugestões ou dúvidas sobre o projeto!</p>
+            
+            <form id="form-comentario" class="form-cartoon">
+                <input type="text" id="nome-usuario" placeholder="Seu Nome" required class="input-cartoon">
+                <textarea id="texto-comentario" placeholder="Escreva sua dúvida ou mensagem..." required class="input-cartoon"></textarea>
+                <button type="submit" class="link-externo">Enviar Mensagem</button>
+            </form>
+
+            <div id="lista-comentarios">
+                </div>
         </section>
     </div>
 
