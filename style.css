@@ -2,18 +2,38 @@
 :root {
     --bg-principal: #121212;
     --bg-card: #1e1e1e;
+    --texto: #ffffff;
     --verde-neon: #39ff14;
     --verde-agro: #24cc14;
     --borda-cartoon: 4px solid #000000;
     --sombra-cartoon: 5px 5px 0px #000000;
 }
 
+/* Modificadores para o Modo Claro */
+.light-mode {
+    --bg-principal: #f0f4f0;
+    --bg-card: #ffffff;
+    --texto: #121212;
+    --verde-neon: #1baf07;
+    --verde-agro: #24cc14;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Fredoka', sans-serif;
     background-color: var(--bg-principal);
-    color: #ffffff;
+    color: var(--texto);
     margin: 0;
-    padding: 80px 20px 20px 20px; /* Aumentado o padding superior por causa do menu fixo */
+    padding: 100px 20px 20px 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
 }
 
 /* BARRA DE MENU FIXA ESTILO CARTOON */
@@ -27,21 +47,25 @@ body {
     padding: 15px 0;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    gap: 15px;
     z-index: 1000;
+    flex-wrap: wrap;
 }
 
-.menu-cartoon a {
-    color: #ffffff;
+.menu-cartoon a, .btn-alternar-tema {
+    color: var(--texto);
     text-decoration: none;
     font-weight: bold;
-    padding: 8px 16px;
+    padding: 8px 14px;
     border: 2px solid transparent;
     border-radius: 8px;
-    transition: all 0.1s ease;
+    background: none;
+    cursor: pointer;
+    font-family: 'Fredoka', sans-serif;
 }
 
-.menu-cartoon a:hover {
+.menu-cartoon a:hover, .btn-alternar-tema:hover {
     color: #000000;
     background-color: var(--verde-neon);
     border: 2px solid #000000;
@@ -49,17 +73,11 @@ body {
     transform: translate(-2px, -2px);
 }
 
-.container {
-    max-width: 800px;
-    margin: 40px auto;
-}
-
-/* Elemento Badge */
 .badge-tema {
     display: inline-block;
     background: #2a2a2a;
-    color: var(--verde-neon);
-    border: 2px solid var(--verde-neon);
+    color: #39ff14;
+    border: 2px solid #39ff14;
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 14px;
@@ -67,7 +85,7 @@ body {
     font-weight: bold;
 }
 
-/* Cards Estilo HQ (Borda grossa e sombra sem desfoque) */
+/* Cards Estilo HQ */
 .card {
     background-color: var(--bg-card);
     border: var(--borda-cartoon);
@@ -78,7 +96,6 @@ body {
     transition: transform 0.1s, box-shadow 0.1s;
 }
 
-/* Efeito de feedback visual ao passar o mouse */
 .card:hover {
     transform: translate(-2px, -2px);
     box-shadow: 7px 7px 0px #000000;
@@ -90,11 +107,10 @@ h1 {
     margin-top: 0;
     text-transform: uppercase;
     letter-spacing: 1px;
-    -webkit-text-stroke: 1px #000;
 }
 
 h3 {
-    color: #ffffff;
+    color: var(--verde-neon);
     font-size: 20px;
     margin-bottom: 10px;
     margin-top: 25px;
@@ -103,7 +119,6 @@ h3 {
 p {
     font-size: 16px;
     line-height: 1.6;
-    color: #e0e0e0;
 }
 
 .subtitulo-secao {
@@ -116,14 +131,14 @@ p {
     font-weight: bold;
 }
 
-/* Itens da lista com estilo caixa de quadrinhos */
 .lista-cartoon {
     list-style: none;
     padding: 0;
 }
 
-.lista-cartoon li {
+.lista-cartoon li, .item-fonte {
     background-color: #2a2a2a;
+    color: #ffffff;
     border: 3px solid #000;
     border-radius: 8px;
     padding: 15px;
@@ -131,23 +146,51 @@ p {
     box-shadow: 3px 3px 0px #000;
 }
 
-.lista-cartoon li strong {
+.item-fonte h3 {
+    margin-top: 0;
     color: var(--verde-neon);
 }
 
-/* Links Externos das Categorias */
+/* Botões de Filtro e Links */
+.container-filtros {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-filtro {
+    font-family: 'Fredoka', sans-serif;
+    background-color: var(--bg-card);
+    color: var(--texto);
+    border: 2px solid #000;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 2px 2px 0px #000;
+}
+
+.btn-filtro.ativo, .btn-filtro:hover {
+    background-color: var(--verde-neon);
+    color: #000000;
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px #000;
+}
+
 .link-externo {
     display: inline-block;
     color: #000000;
     background-color: var(--verde-agro);
     border: 2px solid #000000;
-    padding: 4px 10px;
+    padding: 6px 12px;
     margin-top: 8px;
     border-radius: 6px;
     font-size: 14px;
     font-weight: bold;
     text-decoration: none;
     box-shadow: 2px 2px 0px #000000;
+    cursor: pointer;
 }
 
 .link-externo:hover {
@@ -156,7 +199,6 @@ p {
     transform: translate(-2px, -2px);
 }
 
-/* Caixa de Alerta interna para a Justificativa */
 .caixa-alerta-justificativa {
     background-color: var(--verde-agro);
     color: #000000;
@@ -167,14 +209,71 @@ p {
     box-shadow: var(--sombra-cartoon);
 }
 
-.caixa-alerta-justificativa h2 {
+.caixa-alerta-justificativa h2, .caixa-alerta-justificativa p {
     color: #000000;
-    margin-top: 0;
-    font-size: 22px;
-    font-weight: 800;
 }
 
-.caixa-alerta-justificativa p {
-    color: #000000;
-    font-weight: 600;
+/* Estilos do Quiz e Formulário */
+.caixa-quiz, .form-cartoon {
+    background-color: #2a2a2a;
+    border: 3px solid #000;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 0px #000;
+}
+
+.caixa-quiz h3 { margin-top: 0; color: #fff;}
+
+.opcoes-quiz {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.opcao-btn {
+    font-family: 'Fredoka', sans-serif;
+    text-align: left;
+    background: var(--bg-card);
+    color: var(--texto);
+    border: 2px solid #000;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.opcao-btn:hover {
+    background-color: #444;
+}
+
+#resultado-quiz {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    border: 2px solid #000;
+}
+
+.resultado-escondido { display: none; }
+.acertou { background-color: var(--verde-agro); color: #000; }
+.errou { background-color: #ff3333; color: #fff; }
+
+/* Formulário e Comentários */
+.form-cartoon { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;}
+.input-cartoon {
+    font-family: 'Fredoka', sans-serif;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 6px;
+    background: var(--bg-card);
+    color: var(--texto);
+}
+.bloco-comentario {
+    background: #333;
+    border: 2px solid #000;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 0px #000;
+    color: #fff;
 }
